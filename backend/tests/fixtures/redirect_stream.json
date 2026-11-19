@@ -1,0 +1,14 @@
+{
+  "id": 88,
+  "type": "regular",
+  "name": "AU → Google",
+  "campaign_id": 42,
+  "position": 1,
+  "state": "active",
+  "action_type": "http",
+  "action_payload": "https://google.com",
+  "schema": "redirect",
+  "filters": [{"id": 90, "stream_id": 88, "name": "country", "mode": "accept", "payload": "[\"AU\"]"}],
+  "landings": [],
+  "offers": []
+}

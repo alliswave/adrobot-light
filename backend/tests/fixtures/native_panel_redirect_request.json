@@ -1,0 +1,8 @@
+{
+  "schema": "redirect",
+  "type": "regular",
+  "state": "active",
+  "action_type": "http",
+  "action_payload": "https://google.com",
+  "position": 1
+}

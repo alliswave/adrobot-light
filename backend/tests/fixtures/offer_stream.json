@@ -1,0 +1,13 @@
+{
+  "id": 89,
+  "type": "default",
+  "name": "Остальные страны",
+  "campaign_id": 42,
+  "position": 2,
+  "state": "active",
+  "action_type": "http",
+  "schema": "landings",
+  "filters": [],
+  "landings": [],
+  "offers": [{"id": 101, "stream_id": 89, "offer_id": 3717, "share": 100, "state": "active"}]
+}
