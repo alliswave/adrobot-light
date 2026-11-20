@@ -43,7 +43,7 @@ function refreshButton(form: VueWrapper) {
 test("отправляет выбранный оффер и блокирует повтор до ответа", async () => {
   let finish!: (response: Response) => void;
   const pending = new Promise<Response>((resolve) => { finish = resolve; });
-  const fetch = vi.fn((url: string, _init?: RequestInit) => {
+  const fetch = vi.fn<(url: string, options?: RequestInit) => Promise<Response>>((url) => {
     if (url === catalogPath) return Promise.resolve(json(singleOptions));
     if (url === "/api/offers?q=3717") {
       return Promise.resolve(json([{ id: 3717, name: "Оффер Австралия" }]));
@@ -199,7 +199,7 @@ test("показывает новую группу после обновлени
   let finish!: (response: Response) => void;
   const delayed = new Promise<Response>((resolve) => { finish = resolve; });
   const catalogs = vi.fn().mockResolvedValueOnce(json(singleOptions)).mockReturnValueOnce(delayed);
-  const fetch = vi.fn((url: string, _options?: RequestInit) => {
+  const fetch = vi.fn<(url: string, options?: RequestInit) => Promise<Response>>((url) => {
     if (url === catalogPath) return catalogs();
     if (url.startsWith("/api/offers")) return Promise.resolve(json([australiaOffer]));
     if (url === campaignPath) return Promise.resolve(json({ id: 42, name: "Кампания AU" }, 201));

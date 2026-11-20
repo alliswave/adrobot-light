@@ -6,7 +6,7 @@ import LoginForm from "../src/features/auth/LoginForm.vue";
 test("передаёт логин и пароль с дополнительными символами Юникода целиком", async () => {
   const username = "🦉".repeat(100);
   const password = "🦉".repeat(1024);
-  const fetch = vi.fn((_url: string, _options?: RequestInit) =>
+  const fetch = vi.fn<(url: string, options?: RequestInit) => Promise<Response>>(() =>
     Promise.resolve(new Response(JSON.stringify({ username }))),
   );
   vi.stubGlobal("fetch", fetch);
